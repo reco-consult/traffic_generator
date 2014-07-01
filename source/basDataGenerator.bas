@@ -48,7 +48,7 @@ Public Sub generateTraffic()
             'Produkt aussuchen, dabei zuletzt gewählten
             intSelectedProductType = basDataGenerator.p_chooseProduct
             'Farbe aussuchen und mit vorgegebener Wahrscheinlichkeit für nächstes Produkt beibehalten
-            If intVisit = 1 Or Rnd > 0.8 Or intLastProductType = intSelectedProductType Then
+            If intVisit = 1 Or Rnd > 0.4 Or intLastProductType = intSelectedProductType Then
                 intColor = CInt(Rnd * 16) + 1
             End If
             'ProduktId berechnen = Typ * 16 + Farboffset (1-16)
@@ -60,7 +60,7 @@ Public Sub generateTraffic()
             'gerade gewählten Prorukttyp merken
             intLastProductType = intSelectedProductType
             'Daten ausgeben
-            strRequest = "http://192.168.1.30:8080/rde_server/res/19c415c38907/recomm/ADS/sid/visitor" & _
+            strRequest = "http://192.168.1.30:8080/rde_server/res/19c415c38907/recomm/Artikelreco/sid/visitor" & _
                 intCustomerId & "?sku=" & lngProductId
             rngCurrent.Value = strRequest
             Set rngCurrent = rngCurrent.Offset(1)
